@@ -1,5 +1,5 @@
---- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 21:18:44.370551000 +0200
-+++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 21:25:09.372969911 +0200
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.075474932 +0200
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.112142298 +0200
 @@ -23,6 +23,13 @@
      height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
      baselineOffset: timeText.y + timeText.baselineOffset
@@ -14,7 +14,7 @@
      ClockItem {
          id: timeText
          color: Theme.primaryColor
-@@ -32,34 +39,48 @@
+@@ -32,34 +39,50 @@
              bottomMargin: -timeText.font.pixelSize
              horizontalCenter: parent.horizontalCenter
          }
@@ -58,10 +58,12 @@
          color: timeText.color
          font { pixelSize: Theme.fontSizeLarge; family: Theme.fontFamily }
          text: {
++            var hour = Qt.formatTime(new Date(), "hh")
++            var ampm = hour >= 12 ? 'pm' : 'am';
              var day = Format.formatDate(time, Format.WeekdayNameStandalone)
 -            return day[0].toUpperCase() + day.substring(1)
 +            var month = Format.formatDate(time, Format.DateMediumWithoutYear)
-+            return day.substring(0, 3).toUpperCase() + ", " + month.toUpperCase()
++            return ampm.toUpperCase() + " - " + day.substring(0, 3).toUpperCase() + ", " + month.toUpperCase()
          }
      }
  

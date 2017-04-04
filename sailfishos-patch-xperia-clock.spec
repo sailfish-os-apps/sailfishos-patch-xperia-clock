@@ -1,6 +1,6 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.2
-Release:       2
+Version:       0.3
+Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
 Vendor:        fravaccaro
@@ -36,6 +36,9 @@ fi
 fi
 
 %changelog
+* Tue Apr 4 2017 0.3
+- AMPM added on 12h clock.
+
 * Tue Apr 4 2017 0.2
 - Date repositioned.
 
