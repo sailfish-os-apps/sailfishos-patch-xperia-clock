@@ -1,0 +1,58 @@
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 14:36:33.257078138 +0200
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 14:36:07.439958113 +0200
+@@ -23,6 +23,13 @@
+     height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
+     baselineOffset: timeText.y + timeText.baselineOffset
+ 
++function dodiciOre()
++{
++    var hours = Qt.formatTime(new Date(), "hh")  % 12 || 12
++    hours = hours < 10 ? '0'+hours : hours
++    return hours
++}
++
+     ClockItem {
+         id: timeText
+         color: Theme.primaryColor
+@@ -32,14 +39,39 @@
+             bottomMargin: -timeText.font.pixelSize
+             horizontalCenter: parent.horizontalCenter
+         }
+-        font { pixelSize: Theme.fontSizeHuge * 2.0; family: Theme.fontFamilyHeading }
++        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
++        text: dodiciOre()
++    }
++    ClockItem {
++        id: timeTextMin
++        color: Theme.primaryColor
++        // Ascender of the time to the top of the clock.
++        anchors {
++            top: timeText.baseline
++            topMargin: -Theme.paddingLarge
++            bottom: parent.top
++            bottomMargin: -timeText.font.pixelSize
++            horizontalCenter: parent.horizontalCenter
++        }
++        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
++        text: Qt.formatTime(new Date(), "mm")
+     }
+ 
++
++    Timer {
++        id: timerClock
++        interval: 60; running: true; repeat: true
++	onTriggered: {
++        	timeText.text = dodiciOre()
++        	timeTextMin.text = Qt.formatTime(new Date(), "mm")   
++    	}
++     }
++
+     Text {
+         id: weekday
+         anchors {
+             horizontalCenter: parent.horizontalCenter
+-            top: timeText.baseline
++            top: timeTextMin.baseline
+             topMargin: Theme.paddingMedium
+         }
+         color: timeText.color

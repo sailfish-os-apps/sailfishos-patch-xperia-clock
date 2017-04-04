@@ -1,0 +1,8 @@
+{
+    "name": "Xperia clock 12h",
+    "description": "Enable Xperia-like clock in the lockscreen.",
+    "category": "homescreen",
+    "infos": {
+        "maintainer": "fravaccaro"
+    }
+}
