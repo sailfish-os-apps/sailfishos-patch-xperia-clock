@@ -1,0 +1,27 @@
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.075474932 +0200
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.112142298 +0200
+@@ -8,6 +8,7 @@
+ import QtQuick 2.0
+ import Sailfish.Silica 1.0
+ import org.nemomobile.time 1.0
++import "../eventsview/weather"
+ import org.nemomobile.lipstick 0.1
+ import "../main"
+ 
+@@ -84,5 +85,16 @@
+             return ampm.toUpperCase() + " - " + day.substring(0, 3).toUpperCase() + ", " + month.toUpperCase()
+         }
+     }
++	WeatherLoader {
++        id: weatherWidget
++		visible: true
++		active: true
++		enabled: true
++	    anchors {
++			top: weekday.bottom
++			horizontalCenter: parent.horizontalCenter
++		}	
++		width: lockScreen.width
++    }		
+ 
+ }

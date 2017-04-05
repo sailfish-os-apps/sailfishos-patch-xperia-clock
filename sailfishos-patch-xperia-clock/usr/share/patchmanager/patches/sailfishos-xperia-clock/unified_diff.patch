@@ -1,13 +1,27 @@
---- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 21:18:44.370551438 +0200
-+++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 21:22:42.194097914 +0200
-@@ -32,34 +32,48 @@
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.075474932 +0200
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.112142298 +0200
+@@ -23,6 +23,13 @@
+     height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
+     baselineOffset: timeText.y + timeText.baselineOffset
+ 
++/* function hours12()
++{
++    var hours = Qt.formatTime(new Date(), "hh")  % 12 || 12
++    hours = hours < 10 ? '0'+hours : hours
++    return hours
++}
++ */
+     ClockItem {
+         id: timeText
+         color: Theme.primaryColor
+@@ -32,34 +39,50 @@
              bottomMargin: -timeText.font.pixelSize
              horizontalCenter: parent.horizontalCenter
          }
 -        font { pixelSize: Theme.fontSizeHuge * 2.0; family: Theme.fontFamilyHeading }
 +        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
 +        text: Qt.formatTime(new Date(), "hh")
-     }
++    }
 +    ClockItem {
 +        id: timeTextMin
 +        color: Theme.primaryColor
@@ -21,8 +35,8 @@
 +        }
 +        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
 +        text: Qt.formatTime(new Date(), "mm")
-+    }
-+
+     }
+ 
 +
 +    Timer {
 +        id: timerClock
@@ -32,7 +46,7 @@
 +        	timeTextMin.text = Qt.formatTime(new Date(), "mm")   
 +    	}
 +     }
- 
++
      Text {
          id: weekday
          anchors {
@@ -44,6 +58,8 @@
          color: timeText.color
          font { pixelSize: Theme.fontSizeLarge; family: Theme.fontFamily }
          text: {
++//            var hour = Qt.formatTime(new Date(), "hh")
++//            var ampm = hour >= 12 ? 'pm' : 'am';
              var day = Format.formatDate(time, Format.WeekdayNameStandalone)
 -            return day[0].toUpperCase() + day.substring(1)
 +            var month = Format.formatDate(time, Format.DateMediumWithoutYear)
