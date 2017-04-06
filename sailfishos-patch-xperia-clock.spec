@@ -1,5 +1,5 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.4
+Version:       0.5
 Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
@@ -42,6 +42,9 @@ fi
 fi
 
 %changelog
+* Thu Apr 6 2017 0.5
+- Fixed clock color in Sneak Peek view.
+
 * Wed Apr 5 2017 0.4
 - Weather widget added.
 

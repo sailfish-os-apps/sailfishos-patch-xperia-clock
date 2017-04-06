@@ -1,10 +1,17 @@
---- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.075474932 +0200
-+++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-04 22:19:59.112142298 +0200
-@@ -23,6 +23,13 @@
-     height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
-     baselineOffset: timeText.y + timeText.baselineOffset
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:24:08.131160949 +0200
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:25:56.706243680 +0200
+@@ -19,10 +19,17 @@
+     property bool followPeekPosition
+     property alias updatesEnabled: timeText.updatesEnabled
  
-+function hours12()
+-    width: Math.max(timeText.width, weekday.width, month.width)
+-    height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
+-    baselineOffset: timeText.y + timeText.baselineOffset
++    width: Math.max(timeText.width, timeTextMin.width, weekday.width)
++    height: timeText.font.pixelSize +timeTextMin.font.pixelSize + weekday.font.pixelSize + Theme.paddingMedium * 2
++    baselineOffset: timeTextMin.y + timeTextMin.baselineOffset
+ 
++ function hours12()
 +{
 +    var hours = Qt.formatTime(new Date(), "hh")  % 12 || 12
 +    hours = hours < 10 ? '0'+hours : hours
@@ -24,7 +31,7 @@
 +    }
 +    ClockItem {
 +        id: timeTextMin
-+        color: Theme.primaryColor
++        color: timeText.color
 +        // Ascender of the time to the top of the clock.
 +        anchors {
 +            top: timeText.baseline
