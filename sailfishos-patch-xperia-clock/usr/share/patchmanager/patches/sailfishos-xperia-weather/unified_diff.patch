@@ -16,7 +16,7 @@
 +        id: weatherWidget
 +		visible: true
 +		active: true
-+		enabled: false
++		enabled: true
 +	    anchors {
 +			top: weekday.bottom
 +			horizontalCenter: parent.horizontalCenter

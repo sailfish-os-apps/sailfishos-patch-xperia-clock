@@ -1,5 +1,5 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.5
+Version:       0.6
 Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
@@ -21,7 +21,6 @@ Enable Xperia-like clock in the lockscreen.
 patchmanager -u sailfishos-xperia-clock
 patchmanager -u sailfishos-xperia-clock-12
 patchmanager -u sailfishos-xperia-weather
-patchmanager -u sailfishos-xperia-weather-ex
 
 %postun
 if [ $1 = 0 ]; then
@@ -29,7 +28,6 @@ if [ $1 = 0 ]; then
 rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock
 rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock-12
 rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-weather
-rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-weather-ex
 else
 if [ $1 = 1 ]; then
     // Do stuff specific to upgrades
@@ -42,6 +40,9 @@ fi
 fi
 
 %changelog
+* Tue Oct 12 2017 0.6
+- Update for Sailfish OS 2.1.3.
+
 * Thu Apr 6 2017 0.5
 - Fixed clock color in Sneak Peek view.
 

@@ -1,8 +1,8 @@
 --- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:24:08.131160949 +0200
 +++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:25:56.706243680 +0200
-@@ -19,10 +19,17 @@
-     property bool followPeekPosition
+@@ -21,9 +21,17 @@
      property alias updatesEnabled: timeText.updatesEnabled
+     readonly property bool largeScreen: Screen.sizeCategory >= Screen.Large
  
 -    width: Math.max(timeText.width, weekday.width, month.width)
 -    height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
@@ -10,7 +10,7 @@
 +    width: Math.max(timeText.width, timeTextMin.width, weekday.width)
 +    height: timeText.font.pixelSize +timeTextMin.font.pixelSize + weekday.font.pixelSize + Theme.paddingMedium * 2
 +    baselineOffset: timeTextMin.y + timeTextMin.baselineOffset
- 
++
 + function hours12()
 +{
 +    var hours = Qt.formatTime(new Date(), "hh")  % 12 || 12
@@ -18,14 +18,14 @@
 +    return hours
 +}
 +
+ 
      ClockItem {
          id: timeText
-         color: Theme.primaryColor
-@@ -32,34 +39,50 @@
+@@ -34,39 +42,48 @@
              bottomMargin: -timeText.font.pixelSize
              horizontalCenter: parent.horizontalCenter
          }
--        font { pixelSize: Theme.fontSizeHuge * 2.0; family: Theme.fontFamilyHeading }
+-        font { pixelSize: largeScreen ? Theme.fontSizeHuge * 2.0 : Math.round(128 * Screen.widthRatio); family: Theme.fontFamilyHeading }
 +        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
 +        text: hours12()
 +    }
@@ -44,16 +44,15 @@
 +        text: Qt.formatTime(new Date(), "mm")
      }
  
-+
-+    Timer {
-+        id: timerClock
-+        interval: 60; running: true; repeat: true
-+	onTriggered: {
-+        	timeText.text = hours12()
-+        	timeTextMin.text = Qt.formatTime(new Date(), "mm")   
-+    	}
-+     }
-+
+     Connections {
+         target: Lipstick.compositor
+-        onDisplayAboutToBeOn: timeText.forceUpdate()
++        onDisplayAboutToBeOn: { 
++		timeText.text = Qt.formatTime(new Date(), "hh")
++		timeTextMin.text = Qt.formatTime(new Date(), "mm")  
++	}
+     }
+ 
      Text {
          id: weekday
          anchors {
@@ -63,7 +62,7 @@
              topMargin: Theme.paddingMedium
          }
          color: timeText.color
-         font { pixelSize: Theme.fontSizeLarge; family: Theme.fontFamily }
+         font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(40 * Screen.widthRatio); family: Theme.fontFamily }
          text: {
 +            var hour = Qt.formatTime(new Date(), "hh")
 +            var ampm = hour >= 12 ? 'pm' : 'am';
@@ -82,7 +81,7 @@
 -            topMargin: Theme.paddingMedium
 -        }
 -        color: timeText.color
--        font { pixelSize: Theme.fontSizeExtraLarge * 1.1; family: Theme.fontFamily }
+-        font { pixelSize: largeScreen ? Theme.fontSizeExtraLarge * 1.1 : Math.round(55 * Screen.widthRatio); family: Theme.fontFamily }
 -
 -        text: Format.formatDate(time, Format.DateMediumWithoutYear)
 -    }
