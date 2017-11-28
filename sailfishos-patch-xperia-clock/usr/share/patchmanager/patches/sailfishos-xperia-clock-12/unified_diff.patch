@@ -21,11 +21,13 @@
  
      ClockItem {
          id: timeText
-@@ -34,39 +42,48 @@
-             bottomMargin: -timeText.font.pixelSize
-             horizontalCenter: parent.horizontalCenter
-         }
--        font { pixelSize: largeScreen ? Theme.fontSizeHuge * 2.0 : Math.round(128 * Screen.widthRatio); family: Theme.fontFamilyHeading }
+@@ -31,42 +39,51 @@
+         // Ascender of the time to the top of the clock.
+         anchors {
+             bottom: parent.top
++            bottomMargin: -timeText.font.pixelSize + Theme.paddingLarge * 2
++            horizontalCenter: parent.horizontalCenter
++        }
 +        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
 +        text: hours12()
 +    }
@@ -37,9 +39,10 @@
 +            top: timeText.baseline
 +            topMargin: -Theme.paddingLarge
 +            bottom: parent.top
-+            bottomMargin: -timeText.font.pixelSize
-+            horizontalCenter: parent.horizontalCenter
-+        }
+             bottomMargin: -timeText.font.pixelSize
+             horizontalCenter: parent.horizontalCenter
+         }
+-        font { pixelSize: largeScreen ? Theme.fontSizeHuge * 2.0 : Math.round(128 * Screen.widthRatio); family: Theme.fontFamilyHeading }
 +        font { pixelSize: Theme.fontSizeHuge * 3.5; family: Theme.fontFamilyHeading }
 +        text: Qt.formatTime(new Date(), "mm")
      }

@@ -1,5 +1,5 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.7
+Version:       0.7.1
 Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
@@ -40,6 +40,9 @@ fi
 fi
 
 %changelog
+* Tue Nov 28 2017 0.7.1
+- Fixed top margin.
+
 * Tue Oct 12 2017 0.7
 - Update for Sailfish OS 2.1.3.
 
