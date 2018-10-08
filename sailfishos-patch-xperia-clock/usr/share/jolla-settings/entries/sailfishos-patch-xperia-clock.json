@@ -1,0 +1,15 @@
+{
+    "translation_catalog": "sailfishos-patch-xperia-clock",
+    "entries": [
+        {
+            "path": "system_settings/look_and_feel/sailfishos-patch-xperia-clock",
+            "type": "page",
+            "title": "Xperia clock",
+            "icon": "image://theme/icon-m-clock",
+            "order": 1500,
+            "params": {
+                "source": "/usr/share/jolla-settings/pages/sailfishos-patch-xperia-clock/main.qml"
+            }
+        }
+    ]
+}

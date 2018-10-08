@@ -1,8 +1,0 @@
-{
-    "name": "Weather for Xperia clock",
-    "description": "Add the weather widget to the Xperia-like clock in the lockscreen.",
-    "category": "homescreen",
-    "infos": {
-        "maintainer": "fravaccaro"
-    }
-}

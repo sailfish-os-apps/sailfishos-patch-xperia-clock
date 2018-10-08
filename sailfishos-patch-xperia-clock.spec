@@ -1,6 +1,6 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.7.1
-Release:       1
+Version:       0.8.0
+Release:       2
 Summary:       Xperia clock
 Group:         System/Tools
 Vendor:        fravaccaro
@@ -19,27 +19,26 @@ Enable Xperia-like clock in the lockscreen.
 
 %preun
 patchmanager -u sailfishos-xperia-clock
-patchmanager -u sailfishos-xperia-clock-12
-patchmanager -u sailfishos-xperia-weather
 
 %postun
 if [ $1 = 0 ]; then
     // Do stuff specific to uninstalls
-rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock
-rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock-12
-rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-weather
+        rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock
+	rm /usr/share/jolla-settings/entries/sailfishos-patch-xperia-clock.json
+	rm -rf /usr/share/jolla-settings/pages/sailfishos-patch-xperia-clock
+
 else
 if [ $1 = 1 ]; then
     // Do stuff specific to upgrades
 echo "Upgrading"
-patchmanager -u sailfishos-xperia-clock
-patchmanager -u sailfishos-xperia-clock-12
-patchmanager -u sailfishos-xperia-weather
-patchmanager -u sailfishos-xperia-weather-ex
+        patchmanager -u sailfishos-xperia-clock
 fi
 fi
 
 %changelog
+* Mon Oct 8 2018 0.8.0
+- Added settings page.
+
 * Tue Nov 28 2017 0.7.1
 - Fixed top margin.
 
