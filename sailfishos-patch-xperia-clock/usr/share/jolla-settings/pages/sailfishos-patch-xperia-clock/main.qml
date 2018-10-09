@@ -15,9 +15,9 @@ Page {
         property real msize: 3.5
         property real mmargin: 1
         property color mcolor: Theme.primaryColor
-        property real daysize: 40
-        property real daymargin: 1
-        property color daycolor: Theme.primaryColor
+        property real datesize: 40
+        property real datemargin: 1
+        property color datecolor: Theme.primaryColor
         property bool weatherenabled: false
         property int weatherscale: 100
     }
@@ -119,7 +119,7 @@ Page {
             Slider {
                 id: sldhmargin
                 width: parent.width
-                label: qsTr("Margin")
+                label: qsTr("Spacing")
                 maximumValue: 4
                 minimumValue: 0
                 stepSize: 0.5
@@ -215,7 +215,7 @@ Page {
             Slider {
                 id: sldmmargin
                 width: parent.width
-                label: qsTr("Margin")
+                label: qsTr("Spacing")
                 maximumValue: 5
                 minimumValue: -3
                 stepSize: 0.5
@@ -238,37 +238,37 @@ Page {
               }
 
             SectionHeader {
-                text: qsTr("Days")
+                text: qsTr("Date")
             }
 
             BackgroundItem {
-                id: cpdaycolor
+                id: cpdatecolor
                 Row {
                     x: Theme.horizontalPageMargin
                     height: parent.height
                     spacing: Theme.paddingMedium
                     Rectangle {
-                        id: daycolorIndicator
+                        id: datecolorIndicator
                         width: height
                         height: parent.height
-                        color: xperiaclock.daycolor
+                        color: xperiaclock.datecolor
                     }
                     Label {
                         text: qsTr("Color")
-                        color: cpdaycolor.down ? Theme.highlightColor : Theme.primaryColor
+                        color: cpdatecolor.down ? Theme.highlightColor : Theme.primaryColor
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
                 onClicked: {
-                    var page = pageStack.push("Sailfish.Silica.ColorPickerPage", { color: daycolorIndicator.color })
+                    var page = pageStack.push("Sailfish.Silica.ColorPickerPage", { color: datecolorIndicator.color })
                     page.colorClicked.connect(function(color) {
-                        daycolorIndicator.color = color
-                        xperiaclock.daycolor = color
+                        datecolorIndicator.color = color
+                        xperiaclock.datecolor = color
                         pageStack.pop()
                     })
                 }
                 Component {
-                    id: daycolorPickerPage
+                    id: datecolorPickerPage
                     ColorPickerPage {}
                 }
             }
@@ -277,24 +277,24 @@ Page {
                   anchors.horizontalCenter: parent.horizontalCenter
                   text: qsTr("Restore")
                   onClicked: {
-                    xperiaclock.daycolor = Theme.primaryColor
-                    daycolorIndicator.color = xperiaclock.daycolor
+                    xperiaclock.datecolor = Theme.primaryColor
+                    datecolorIndicator.color = xperiaclock.datecolor
                 }
               }
 
             Slider {
-                id: slddaysize
+                id: slddatesize
                 width: parent.width
                 label: qsTr("Size")
                 maximumValue: 60
                 minimumValue: 20
                 stepSize: 5
-                value: xperiaclock.daysize
+                value: xperiaclock.datesize
                 valueText: value
                 onPressAndHold: cancel()
 
                 onReleased: {
-                    xperiaclock.daysize = value
+                    xperiaclock.datesize = value
                 }
             }
 
@@ -302,24 +302,24 @@ Page {
                   anchors.horizontalCenter: parent.horizontalCenter
                   text: qsTr("Restore")
                   onClicked: {
-                    xperiaclock.daysize = 40
-                    slddaysize.value = xperiaclock.daysize
+                    xperiaclock.datesize = 40
+                    slddatesize.value = xperiaclock.datesize
                 }
               }
 
             Slider {
-                id: slddaymargin
+                id: slddatemargin
                 width: parent.width
-                label: qsTr("Margin")
+                label: qsTr("Spacing")
                 maximumValue: 5
                 minimumValue: -3
                 stepSize: 0.5
-                value: xperiaclock.daymargin
+                value: xperiaclock.datemargin
                 valueText: value
                 onPressAndHold: cancel()
 
                 onReleased: {
-                    xperiaclock.daymargin = value
+                    xperiaclock.datemargin = value
                 }
             }
 
@@ -327,8 +327,8 @@ Page {
                   anchors.horizontalCenter: parent.horizontalCenter
                   text: qsTr("Restore")
                   onClicked: {
-                    xperiaclock.daymargin = 1
-                    slddaymargin.value = xperiaclock.daymargin
+                    xperiaclock.datemargin = 1
+                    slddatemargin.value = xperiaclock.datemargin
                 }
               }
 

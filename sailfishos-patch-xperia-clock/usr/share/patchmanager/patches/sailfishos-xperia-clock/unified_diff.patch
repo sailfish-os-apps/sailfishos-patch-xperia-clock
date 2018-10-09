@@ -37,9 +37,9 @@
 +        property real msize: 3.5
 +        property real mmargin: 1
 +        property color mcolor: Theme.primaryColor
-+        property real daysize: 40
-+        property real daymargin: 1
-+        property color daycolor: Theme.primaryColor
++        property real datesize: 40
++        property real datemargin: 1
++        property color datecolor: Theme.primaryColor
 +        property bool weatherenabled: false
 +        property int weatherscale: 100
 +    }
@@ -106,12 +106,12 @@
 -            top: timeText.baseline
 -            topMargin: Theme.paddingMedium
 +            top: timeTextMin.baseline
-+            topMargin: Theme.paddingMedium * xperiaclock.daymargin
++            topMargin: Theme.paddingMedium * xperiaclock.datemargin
          }
 -        color: timeText.color
 -        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(40 * Screen.widthRatio); family: Theme.fontFamily }
-+        color: xperiaclock.daycolor
-+        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(xperiaclock.daysize * Screen.widthRatio); family: Theme.fontFamily }
++        color: xperiaclock.datecolor
++        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(xperiaclock.datesize * Screen.widthRatio); family: Theme.fontFamily }
          text: {
              var day = Format.formatDate(time, Format.WeekdayNameStandalone)
 -            return day[0].toUpperCase() + day.substring(1)
