@@ -3,6 +3,7 @@
 <TS version="2.1" language="it_IT">
 <context>
     <message>
+    <name>sailfishos-patch-xperia-clock</name>
         <source>Xperia clock</source>
         <translation>Orologio Xperia</translation>
     </message>

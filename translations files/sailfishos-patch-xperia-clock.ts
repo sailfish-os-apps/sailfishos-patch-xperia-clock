@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>sailfishos-patch-xperia-clock</name>
+    <message>
+        <source>Xperia clock</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Xperia clock</source>
@@ -57,13 +64,6 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>sailfishos-patch-xperia-clock</name>
-    <message>
-        <source>Xperia clock</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
