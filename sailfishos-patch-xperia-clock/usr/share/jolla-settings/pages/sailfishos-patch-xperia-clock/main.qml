@@ -378,11 +378,44 @@ Page {
                   onClicked: Qt.openUrlExternally("https://www.paypal.me/fravaccaro")
               }
 
-    }
+              SectionHeader { text: qsTr("Translations") }
+
+              AboutLanguage { text: "Deutsch" }
+              AboutTranslator { text: "Sailfishman" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              AboutLanguage { text: "Italiano" }
+              AboutTranslator { text: "Francesco Vaccaro" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              AboutLanguage { text: "Nederlands" }
+              AboutTranslator { text: "Nathan Follens" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              AboutLanguage { text: "Neerlandais (Belgique)" }
+              AboutTranslator { text: "Nathan Follens" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              Label {
+                  x: Theme.paddingLarge
+                  width: parent.width - (x * 2)
+                  wrapMode: Text.Wrap
+                  textFormat: Text.RichText
+                  text: qsTr("Request a new language or contribute to existing languages on the Transifex project page.")
+                  onLinkActivated: Qt.openUrlExternally(link)
+              }
+
+              Button {
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  text: qsTr("Transifex")
+                  onClicked: Qt.openUrlExternally("https://www.transifex.com/fravaccaro/patch-xperia-clock")
+              }
+
+              Item { width: parent.width; height: Theme.paddingLarge }
+        }
 
         VerticalScrollDecorator {
             flickable: flick
         }
     }
 }
-

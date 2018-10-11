@@ -1,5 +1,5 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.8.1
+Version:       0.8.2
 Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
@@ -25,8 +25,11 @@ if [ $1 = 0 ]; then
     // Do stuff specific to uninstalls
         rm -rf /usr/share/patchmanager/patches/sailfishos-xperia-clock
 	rm /usr/share/jolla-settings/entries/sailfishos-patch-xperia-clock.json
-	rm /usr/share/translations/sailfishos-patch-xperia-clock-it.qm
 	rm -rf /usr/share/jolla-settings/pages/sailfishos-patch-xperia-clock
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-de.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-it.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl_BE.qm
 
 else
 if [ $1 = 1 ]; then
@@ -37,6 +40,9 @@ fi
 fi
 
 %changelog
+* Thu Oct 11 2018 0.8.2
+- Added translations.
+
 * Tue Oct 9 2018 0.8.1
 - Added translations.
 
