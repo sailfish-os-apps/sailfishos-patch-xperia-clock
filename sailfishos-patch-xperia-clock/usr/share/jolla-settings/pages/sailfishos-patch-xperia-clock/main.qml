@@ -396,6 +396,14 @@ Page {
               AboutTranslator { text: "Nathan Follens" }
               Item { width: parent.width; height: Theme.paddingLarge }
 
+              AboutLanguage { text: "Svenska" }
+              AboutTranslator { text: "Åke Engelbrektson" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              AboutLanguage { text: "Zhōngwén (Chinese)" }
+              AboutTranslator { text: "rui kon" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
               Label {
                   x: Theme.paddingLarge
                   width: parent.width - (x * 2)

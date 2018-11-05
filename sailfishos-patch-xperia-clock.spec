@@ -1,6 +1,6 @@
 Name:          sailfishos-patch-xperia-clock
 Version:       0.8.2
-Release:       1
+Release:       3
 Summary:       Xperia clock
 Group:         System/Tools
 Vendor:        fravaccaro
@@ -30,6 +30,8 @@ if [ $1 = 0 ]; then
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-it.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl_BE.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-sv.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-zh.qm
 
 else
 if [ $1 = 1 ]; then
