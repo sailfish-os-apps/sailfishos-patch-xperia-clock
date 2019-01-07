@@ -1,20 +1,19 @@
 --- /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:24:08.131160949 +0200
 +++ /usr/share/lipstick-jolla-home-qt5/lockscreen/Clock.qml	2017-04-06 20:25:56.706243680 +0200
-@@ -11,6 +11,8 @@
+@@ -11,6 +11,7 @@
  import org.nemomobile.time 1.0
  import org.nemomobile.lipstick 0.1
  import "../main"
-+import "../eventsview/weather"
 +import org.nemomobile.configuration 1.0
  
  Item {
      id: clock
-@@ -21,52 +23,116 @@
-     property alias updatesEnabled: timeText.updatesEnabled
+@@ -22,12 +23,35 @@
      readonly property bool largeScreen: Screen.sizeCategory >= Screen.Large
+     readonly property alias weekdayFont: weekday.font
  
 -    width: Math.max(timeText.width, weekday.width, month.width)
--    height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium * 2
+-    height: timeText.font.pixelSize + weekday.font.pixelSize + month.font.pixelSize + Theme.paddingMedium
 -    baselineOffset: timeText.y + timeText.baselineOffset
 +    width: Math.max(timeText.width, timeTextHours.width, timeTextMin.width, weekday.width)
 +    height: timeText.font.pixelSize +timeTextMin.font.pixelSize + weekday.font.pixelSize + Theme.paddingMedium * 2
@@ -40,81 +39,90 @@
 +        property real datesize: 40
 +        property real datemargin: 1
 +        property color datecolor: Theme.primaryColor
-+        property bool weatherenabled: false
-+        property int weatherscale: 100
 +    }
  
      ClockItem {
          id: timeText
--        color: Theme.primaryColor
-+	visible: false
-+        color: xperiaclock.hcolor
-+        // Ascender of the time to the top of the clock.
-+        anchors {
-+            bottom: parent.top
-+            bottomMargin: -timeText.font.pixelSize + Theme.paddingLarge * xperiaclock.hmargin
-+            horizontalCenter: parent.horizontalCenter
-+        }
-+        font { pixelSize: Theme.fontSizeHuge * xperiaclock.hsize; family: Theme.fontFamilyHeading }
-+        text: Qt.formatTime(new Date(), "hh")
-+    }
-+
++        visible: false
+         color: Theme.primaryColor
+         // Ascender of the time to the top of the clock.
+         anchors {
+@@ -38,36 +62,63 @@
+         font { pixelSize: largeScreen ? Theme.fontSizeHuge * 2.0 : Math.round(128 * Screen.widthRatio); family: Theme.fontFamilyHeading }
+     }
+ 
+-    Connections {
+-        target: Lipstick.compositor
+-        onDisplayAboutToBeOn: timeText.forceUpdate()
+-    }
+-
+-    Text {
+-        id: weekday
 +    ClockItem {
 +        id: timeTextHour
 +        color: xperiaclock.hcolor
 +        // Ascender of the time to the top of the clock.
-+        anchors {
+         anchors {
 +            bottom: parent.top
 +            bottomMargin: -timeTextHour.font.pixelSize + Theme.paddingLarge * xperiaclock.hmargin
-+            horizontalCenter: parent.horizontalCenter
-+        }
+             horizontalCenter: parent.horizontalCenter
+-            top: timeText.baseline
+-            topMargin: Theme.paddingMedium
+-        }
+-        color: timeText.color
+-        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(40 * Screen.widthRatio); family: Theme.fontFamily }
+-        text: {
+-            var day = Format.formatDate(time, Format.WeekdayNameStandalone)
+-            return day[0].toUpperCase() + day.substring(1)
+         }
 +        font { pixelSize: Theme.fontSizeHuge * xperiaclock.hsize; family: Theme.fontFamilyHeading }
 +        text: xperiaclock.ampm ? hours12() : Qt.formatTime(new Date(), "hh");
-+    }
++     }
 +
 +    ClockItem {
 +        id: timeTextMin
 +        color: xperiaclock.mcolor
-         // Ascender of the time to the top of the clock.
-         anchors {
++        // Ascender of the time to the top of the clock.
++         anchors {
 +            top: timeTextHour.baseline
 +            topMargin: -Theme.paddingLarge * xperiaclock.mmargin
-             bottom: parent.top
--            bottomMargin: -timeText.font.pixelSize
++            bottom: parent.top
 +            bottomMargin: -timeTextHour.font.pixelSize
-             horizontalCenter: parent.horizontalCenter
-         }
--        font { pixelSize: largeScreen ? Theme.fontSizeHuge * 2.0 : Math.round(128 * Screen.widthRatio); family: Theme.fontFamilyHeading }
++             horizontalCenter: parent.horizontalCenter
++         }
 +        font { pixelSize: Theme.fontSizeHuge * xperiaclock.msize; family: Theme.fontFamilyHeading }
 +        text: Qt.formatTime(new Date(), "mm")
      }
  
-     Connections {
-         target: Lipstick.compositor
--        onDisplayAboutToBeOn: timeText.forceUpdate()
+-    Text {
+-        id: month
+-        anchors {
+-            horizontalCenter: parent.horizontalCenter
+-            top: weekday.baseline
+-            topMargin: Theme.paddingMedium
+-        }
+-        color: timeText.color
+-        font { pixelSize: largeScreen ? Theme.fontSizeExtraLarge * 1.1 : Math.round(55 * Screen.widthRatio); family: Theme.fontFamily }
++    Connections {
++        target: Lipstick.compositor
 +        onDisplayAboutToBeOn: { 
 +		timeTextHour.text = xperiaclock.ampm ? hours12() : Qt.formatTime(new Date(), "hh");
 +
 +		timeTextMin.text = Qt.formatTime(new Date(), "mm")  
 +	}
-     }
- 
-     Text {
-         id: weekday
-         anchors {
-             horizontalCenter: parent.horizontalCenter
--            top: timeText.baseline
--            topMargin: Theme.paddingMedium
++     }
++ 
++     Text {
++        id: weekday
++         anchors {
++             horizontalCenter: parent.horizontalCenter
 +            top: timeTextMin.baseline
 +            topMargin: Theme.paddingMedium * xperiaclock.datemargin
-         }
--        color: timeText.color
--        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(40 * Screen.widthRatio); family: Theme.fontFamily }
++         }
 +        color: xperiaclock.datecolor
 +        font { pixelSize: largeScreen ? Theme.fontSizeLarge : Math.round(xperiaclock.datesize * Screen.widthRatio); family: Theme.fontFamily }
-         text: {
-             var day = Format.formatDate(time, Format.WeekdayNameStandalone)
--            return day[0].toUpperCase() + day.substring(1)
++         text: {
++            var day = Format.formatDate(time, Format.WeekdayNameStandalone)
 +            var month = Format.formatDate(time, Format.DateMediumWithoutYear)
 +        if(xperiaclock.ampm){
 +            var hour = Qt.formatTime(new Date(), "hh")
@@ -122,31 +130,10 @@
 +            return ampm.toUpperCase() + " - " + day.substring(0, 3).toUpperCase() + ", " + month.toUpperCase();
 +        } else {
 +            return day.substring(0, 3).toUpperCase() + ", " + month.toUpperCase();
-         }
--    }
--
--    Text {
--        id: month
--        anchors {
--            horizontalCenter: parent.horizontalCenter
--            top: weekday.baseline
--            topMargin: Theme.paddingMedium
-         }
--        color: timeText.color
--        font { pixelSize: largeScreen ? Theme.fontSizeExtraLarge * 1.1 : Math.round(55 * Screen.widthRatio); family: Theme.fontFamily }
--
++         }
++      }
++   }
+ 
 -        text: Format.formatDate(time, Format.DateMediumWithoutYear)
-     }
-+	WeatherLoader {
-+        id: weatherWidget
-+		visible: xperiaclock.weatherenabled
-+		active: true
-+		scale: xperiaclock.weatherscale/100
-+	    anchors {
-+			top: weekday.bottom
-+			horizontalCenter: parent.horizontalCenter
-+		}	
-+		width: lockScreen.width
-+    }
-+
+-    }
  }

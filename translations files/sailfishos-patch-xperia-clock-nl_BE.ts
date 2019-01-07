@@ -1,5 +1,12 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_BE" version="2.1">
 <context>
+    <name>sailfishos-patch-xperia-clock</name>
+    <message>
+        <source>Xperia clock</source>
+        <translation>Xperia-klok</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Xperia clock</source>
@@ -63,18 +70,11 @@
     </message>
     <message>
         <source>Request a new language or contribute to existing languages on the Transifex project page.</source>
-        <translation>Vraagd een nieuwe vertaling aan of draagd bij aan bestaande vertalingen op Transifex.</translation>
+        <translation>Vraagt een nieuwe vertaling aan of draagt bij aan bestaande vertalingen op Transifex.</translation>
     </message>
     <message>
         <source>Transifex</source>
         <translation>Transifex</translation>
-    </message>
-</context>
-<context>
-    <name>sailfishos-patch-xperia-clock</name>
-    <message>
-        <source>Xperia clock</source>
-        <translation>Xperia-klok</translation>
     </message>
 </context>
 </TS>

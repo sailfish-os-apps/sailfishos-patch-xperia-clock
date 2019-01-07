@@ -1,5 +1,12 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
+    <name>sailfishos-patch-xperia-clock</name>
+    <message>
+        <source>Xperia clock</source>
+        <translation>Xperia-klok</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Xperia clock</source>
@@ -68,13 +75,6 @@
     <message>
         <source>Transifex</source>
         <translation>Transifex</translation>
-    </message>
-</context>
-<context>
-    <name>sailfishos-patch-xperia-clock</name>
-    <message>
-        <source>Xperia clock</source>
-        <translation>Xperia-klok</translation>
     </message>
 </context>
 </TS>

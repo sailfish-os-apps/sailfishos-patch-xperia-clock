@@ -1,14 +1,14 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.8.2
-Release:       3
+Version:       0.8.3
+Release:       1
 Summary:       Xperia clock
 Group:         System/Tools
 Vendor:        fravaccaro
 Distribution:  SailfishOS
-Requires:      sailfish-version >= 2.0.5, patchmanager
-Packager: fravaccaro <fravaccaro@jollacommunity.it>
+Requires:      sailfish-version >= 3.0.1, patchmanager
+Packager:      fravaccaro <fravaccaro@jollacommunity.it>
 URL:           www.jollacommunity.it
-License:       GPL
+License:       GPLv3
 
 %description
 Enable Xperia-like clock in the lockscreen.
@@ -27,9 +27,12 @@ if [ $1 = 0 ]; then
 	rm /usr/share/jolla-settings/entries/sailfishos-patch-xperia-clock.json
 	rm -rf /usr/share/jolla-settings/pages/sailfishos-patch-xperia-clock
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-de.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-fi_FI.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-hu_HU.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-it.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-nl_BE.qm
+	rm /usr/share/translations/sailfishos-patch-xperia-clock-sl_SI.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-sv.qm
 	rm /usr/share/translations/sailfishos-patch-xperia-clock-zh.qm
 
@@ -42,6 +45,9 @@ fi
 fi
 
 %changelog
+* Mon Jan 7 2019 0.8.3
+- Update for Sailfish 3.0.1.
+
 * Thu Oct 11 2018 0.8.2
 - Added translations.
 

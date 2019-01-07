@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl_SI" version="2.1">
 <context>
     <name>sailfishos-patch-xperia-clock</name>
     <message>
         <source>Xperia clock</source>
-        <translation>Xperia Uhr</translation>
+        <translation>Xperia ura</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Xperia clock</source>
-        <translation>Xperia Uhr</translation>
+        <translation>Xperia ura</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation>Stunden</translation>
+        <translation>Ure</translation>
     </message>
     <message>
         <source>AM/PM</source>
@@ -22,23 +22,23 @@
     </message>
     <message>
         <source>Color</source>
-        <translation>Farbe</translation>
+        <translation>Barva</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation>Zurücksetzen</translation>
+        <translation>Obnovi</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation>Abstand</translation>
+        <translation>Razmaki</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minuten</translation>
+        <translation>Minute</translation>
     </message>
     <message>
         <source>Date</source>
@@ -46,31 +46,31 @@
     </message>
     <message>
         <source>Weather</source>
-        <translation>Wetter</translation>
+        <translation>Vreme</translation>
     </message>
     <message>
         <source>Show weather</source>
-        <translation>Wetteranzeige</translation>
+        <translation>Prikaži vreme</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation>Spenden</translation>
+        <translation>Podpora</translation>
     </message>
     <message>
         <source>If you like my work and want to buy me a beer, feel free to do it!</source>
-        <translation>Wenn dir meine Arbeit gefällt, spendier mir doch ein Bier!</translation>
+        <translation>Če podpirate moje delo in mi želite plačati pivo, nikar ne odlašajte!</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation>Spenden</translation>
+        <translation>Doniraj</translation>
     </message>
     <message>
         <source>Translations</source>
-        <translation>Übersetzungen</translation>
+        <translation>Prevodi</translation>
     </message>
     <message>
         <source>Request a new language or contribute to existing languages on the Transifex project page.</source>
-        <translation>Hilf bei der Übersetzung mit, genaueres dazu findest du auf der Transifex Projektseite.</translation>
+        <translation>Predlagajte nov jezik ali prispevajte k prevodu obstoječih na portalu Transifex.</translation>
     </message>
     <message>
         <source>Transifex</source>

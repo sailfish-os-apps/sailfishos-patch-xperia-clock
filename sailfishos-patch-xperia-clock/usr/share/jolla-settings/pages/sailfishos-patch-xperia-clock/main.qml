@@ -331,7 +331,7 @@ Page {
                     slddatemargin.value = xperiaclock.datemargin
                 }
               }
-
+/*
             SectionHeader {
                 text: qsTr("Weather")
             }
@@ -362,7 +362,7 @@ Page {
                     xperiaclock.weatherscale = value
                 }
             }
-
+*/
               SectionHeader { text: qsTr("Support") }
 
               Label {
@@ -388,12 +388,20 @@ Page {
               AboutTranslator { text: "Francesco Vaccaro" }
               Item { width: parent.width; height: Theme.paddingLarge }
 
+               AboutLanguage { text: "Magyar" }
+               AboutTranslator { text: "Szabó G." }
+               Item { width: parent.width; height: Theme.paddingLarge }
+
               AboutLanguage { text: "Nederlands" }
               AboutTranslator { text: "Nathan Follens" }
               Item { width: parent.width; height: Theme.paddingLarge }
 
               AboutLanguage { text: "Neerlandais (Belgique)" }
               AboutTranslator { text: "Nathan Follens" }
+              Item { width: parent.width; height: Theme.paddingLarge }
+
+              AboutLanguage { text: "Suomi" }
+              AboutTranslator { text: "Ari Järviö" }
               Item { width: parent.width; height: Theme.paddingLarge }
 
               AboutLanguage { text: "Svenska" }
