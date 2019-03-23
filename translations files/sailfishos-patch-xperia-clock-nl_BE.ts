@@ -46,11 +46,11 @@
     </message>
     <message>
         <source>Weather</source>
-        <translation>Weer</translation>
+        <translation>Weerbericht</translation>
     </message>
     <message>
         <source>Show weather</source>
-        <translation>Weer tonen</translation>
+        <translation>Weerbericht tonen</translation>
     </message>
     <message>
         <source>Support</source>

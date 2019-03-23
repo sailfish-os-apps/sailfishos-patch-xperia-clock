@@ -18,7 +18,7 @@ Page {
         property real datesize: 40
         property real datemargin: 1
         property color datecolor: Theme.primaryColor
-        property bool weatherenabled: false
+        property bool weatherenabled: true
         property int weatherscale: 100
     }
 
@@ -331,7 +331,7 @@ Page {
                     slddatemargin.value = xperiaclock.datemargin
                 }
               }
-/*
+
             SectionHeader {
                 text: qsTr("Weather")
             }
@@ -362,7 +362,7 @@ Page {
                     xperiaclock.weatherscale = value
                 }
             }
-*/
+
               SectionHeader { text: qsTr("Support") }
 
               Label {
@@ -380,37 +380,50 @@ Page {
 
               SectionHeader { text: qsTr("Translations") }
 
-              AboutLanguage { text: "Deutsch" }
-              AboutTranslator { text: "Sailfishman" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Deutsch"
+                    value: "Sailfishman"
+                }
 
-              AboutLanguage { text: "Italiano" }
-              AboutTranslator { text: "Francesco Vaccaro" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Italiano"
+                    value: "Francesco Vaccaro"
+                }
 
-               AboutLanguage { text: "Magyar" }
-               AboutTranslator { text: "Szabó G." }
-               Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Magyar"
+                    value: "Szabó G."
+                }
 
-              AboutLanguage { text: "Nederlands" }
-              AboutTranslator { text: "Nathan Follens" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Nederlands"
+                    value: "Nathan Follens"
+                }
 
-              AboutLanguage { text: "Neerlandais (Belgique)" }
-              AboutTranslator { text: "Nathan Follens" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Neerlandais (Belgique)"
+                    value: "Nathan Follens"
+                }
 
-              AboutLanguage { text: "Suomi" }
-              AboutTranslator { text: "Ari Järviö" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+              DetailItem {
+                  label: "Slovenščina"
+                  value: "Boštjan Štrumbelj"
+              }
 
-              AboutLanguage { text: "Svenska" }
-              AboutTranslator { text: "Åke Engelbrektson" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Suomi"
+                    value: "Ari Järviö"
+                }
 
-              AboutLanguage { text: "Zhōngwén (Chinese)" }
-              AboutTranslator { text: "rui kon" }
-              Item { width: parent.width; height: Theme.paddingLarge }
+                DetailItem {
+                    label: "Svenska"
+                    value: "Åke Engelbrektson"
+                }
+
+                DetailItem {
+                    label: "Zhōngwén (Chinese)"
+                    value: "rui kon"
+                }
 
               Label {
                   x: Theme.paddingLarge

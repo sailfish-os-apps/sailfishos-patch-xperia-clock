@@ -1,11 +1,11 @@
 Name:          sailfishos-patch-xperia-clock
-Version:       0.8.3
-Release:       1
+Version:       0.8.4
+Release:       2
 Summary:       Xperia clock
 Group:         System/Tools
 Vendor:        fravaccaro
 Distribution:  SailfishOS
-Requires:      sailfish-version >= 3.0.1, patchmanager
+Requires:      sailfish-version >= 3.0.2, patchmanager
 Packager:      fravaccaro <fravaccaro@jollacommunity.it>
 URL:           www.jollacommunity.it
 License:       GPLv3
@@ -45,6 +45,10 @@ fi
 fi
 
 %changelog
+* Sat Mar 23 2019 0.8.4
+- Update for Sailfish 3.0.2.
+- Toggle for weather on/off.
+
 * Mon Jan 7 2019 0.8.3
 - Update for Sailfish 3.0.1.
 

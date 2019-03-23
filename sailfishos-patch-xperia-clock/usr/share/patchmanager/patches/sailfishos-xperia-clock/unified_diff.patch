@@ -137,3 +137,25 @@
 -        text: Format.formatDate(time, Format.DateMediumWithoutYear)
 -    }
  }
+
+--- /usr/share/lipstick-jolla-home-qt5/lockscreen/WeatherIndicator.qml	2019-03-23 22:55:10.643490926 +0100
++++ /usr/share/lipstick-jolla-home-qt5/lockscreen/WeatherIndicator.qml	2019-03-23 23:00:12.902809733 +0100@@
+@@ -9,8 +9,18 @@
+ import Sailfish.Silica 1.0
+ import Sailfish.Weather 1.0 as Weather
+ import org.nemomobile.lipstick 0.1
++import org.nemomobile.configuration 1.0
+ 
+ Weather.WeatherIndicator {
++
++    ConfigurationGroup {
++        id: xperiaclock
++        path: "/desktop/lipstick/sailfishos-patch-xperia-clock"
++        property bool weatherenabled: true
++        property int weatherscale: 100
++    }
++visible: xperiaclock.weatherenabled
++            scale: xperiaclock.weatherscale/100
+     autoRefresh: true
+     active: Lipstick.compositor.lockScreenLayer.active
+ }
